@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Photo sphere</title>
+	<style>
+		body {
+		margin: 0;
+		overflow: hidden;
+		background-color: #000; }
+    </style>
+</head>
+<body>
+	<div id="sphere"></div>
+	<!-- load the image in the dom first -->
+	<img id="theImg" src="%POST_1[imageUrl]" >
+
+	<script src="assets/three.min.js"></script>
+	<script src="assets/OrbitControls.js"></script>
+	<script src="assets/Detector.js"></script>
+	<script>
+
+		var webglEl = document.getElementById('sphere');
+
+
+		var texture = document.getElementById('theImg').src; //get image url (src) from the dom
+		// console.log('original tex url: ' + texture);
+
+		var hostname = getDomain(texture); //grab domain name from the url (see getDomain() function below)
+		// console.log('domain: ' + hostname);
+
+		//compare img domain with window domain
+		if (hostname != window.location.hostname){
+			//replace domain in the url if different
+			texture = texture.replace(hostname, window.location.hostname);
+		}
+
+		// console.log('new tex url: ' + texture);
+
+		var width  = window.innerWidth,
+			height = window.innerHeight;
+
+		var scene = new THREE.Scene();
+
+		var camera = new THREE.PerspectiveCamera(75, width / height, 1, 1000);
+		camera.position.x = 0.1;
+
+		var renderer = Detector.webgl ? new THREE.WebGLRenderer() : new THREE.CanvasRenderer();
+		renderer.setSize(width, height);
+
+		var sphere = new THREE.Mesh(
+			new THREE.SphereGeometry(100, 20, 20),
+			new THREE.MeshBasicMaterial({
+				// map: THREE.ImageUtils.loadTexture('%POST_1[imageUrl]')
+
+				map: THREE.ImageUtils.loadTexture(texture) //give img url to three.js
+			})
+		);
+		sphere.scale.x = -1;
+		scene.add(sphere);
+
+		var controls = new THREE.OrbitControls(camera);
+		controls.noPan = true;
+		controls.noZoom = true;
+		controls.autoRotate = true;
+		controls.autoRotateSpeed = 0.0;
+
+		webglEl.appendChild(renderer.domElement);
+
+		render();
+
+		function render() {
+			controls.update();
+			requestAnimationFrame(render);
+			renderer.render(scene, camera);
+		}
+
+		function onMouseWheel(event) {
+			event.preventDefault();
+
+			if (event.wheelDeltaY) { // WebKit
+				camera.fov -= event.wheelDeltaY * 0.5;
+			} else if (event.wheelDelta) { 	// Opera / IE9
+				camera.fov -= event.wheelDelta * 0.5;
+			} else if (event.detail) { // Firefox
+				camera.fov += event.detail * 1.;
+			}
+
+			camera.fov = Math.max(40, Math.min(100, camera.fov));
+			camera.updateProjectionMatrix();
+		}
+
+		document.addEventListener('mousewheel', onMouseWheel, false);
+		document.addEventListener('DOMMouseScroll', onMouseWheel, false);
+
+
+		//function returns the domain (hostname) from a given string
+		function getDomain(url) {
+			//create dom object
+			var l = document.createElement('a');
+			//assign it the url from the string
+			l.href = url
+
+			// console.log('url: ' + url + ' l: ' + l.hostname);
+
+			//return the hostname
+			return l.hostname;
+		}
+
+	</script>
+</body>
+</html>

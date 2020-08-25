@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>Touch 10 Image Slideshow</title>
+<meta http-equiv="Content-Type" content="text/html;
+charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<script language="JavaScript" type="text/JavaScript">
+
+function reset(){
+	document.getElementById('strip').style.left = "0px";
+	position = 0;
+}
+
+var position = 0;
+function advance(){
+	 if(position < 9) {
+	 	position += 1;
+	 	document.getElementById('strip').style.left = String((1280*position)*-1) + "px";
+	 } else {
+	 	position = 0;
+	 	document.getElementById('strip').style.left = "0px";
+	 }
+	 console.log(position);
+}
+
+function reverse(){
+	if(position >= 1) {
+		position -= 1;
+		document.getElementById('strip').style.left = String((1280*position)*-1) + "px";
+		console.log(position);
+	}
+}
+
+</script>
+<style = "text/CSS">
+
+		html, body {
+		width: 1280;;
+		height: 720px;
+		padding: 0px;
+		margin: 0px;
+		overflow: hidden;
+		}
+
+		.container {
+		position: absolute;
+		width: 1280px;
+		height: 720px;
+		left: 0px;
+		top: 0px;
+		-webkit-user-select: none;
+		}
+
+		.bg {
+		position: absolute;
+		z-index: 1;
+		object-fit: contain; }
+
+		.strip { position: absolute;
+		left: 0px;
+		top: 0px;
+		z-index: 20;
+		height: 720px;
+		width: 20000px;
+		transition-duration: 0.75s;
+		}
+
+		.pic { position: relative;
+		left: 0px;
+		top: 0px;
+		height: 720px;
+		width: 1280px;
+		float: left;
+		display: inline;
+		object-fit: contain;
+		}
+
+		.ctlReset {
+			position: absolute;
+			left: 0px;
+			bottom: 0px;
+			z-index: 100;
+			height: 100px;
+			width: 1280px;
+			/* just to see the color on design */
+			background: red;
+			opacity: 0;
+		}
+
+		.ctlForward {
+		position: absolute;
+		right: 0px;
+		bottom: 0px;
+		z-index: 100;
+		height: 720px;
+		width: 640px;
+		/* just to see the color on design */
+		background: green;
+		opacity: 0;
+		}
+
+		.ctlBack {
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			z-index: 100;
+			height: 100px;
+			width: 1280px;
+			background: blue;
+			opacity: 0;
+		}
+
+</style>
+</head>
+<body>
+
+<div id="container" class="container">
+	<img src="assets/previewBg.png" id="bg" class="bg">
+	<div id="strip" class="strip">
+		<img src="%POST_1[imageUrl]" id="pic" class="pic" onclick="advance()" onerror='this.style.display = "none"'>
+		<img src="%POST_2[imageUrl]" id="pic" class="pic" onclick="advance()" onerror='this.style.display = "none"'>
+		<img src="%POST_3[imageUrl]" id="pic" class="pic" onclick="advance()" onerror='this.style.display = "none"'>
+		<img src="%POST_4[imageUrl]" id="pic" class="pic" onclick="advance()" onerror='this.style.display = "none"'>
+		<img src="%POST_5[imageUrl]" id="pic" class="pic" onclick="advance()" onerror='this.style.display = "none"'>
+		<img src="%POST_6[imageUrl]" id="pic" class="pic" onclick="advance()" onerror='this.style.display = "none"'>
+		<img src="%POST_7[imageUrl]" id="pic" class="pic" onclick="advance()" onerror='this.style.display = "none"'>
+		<img src="%POST_8[imageUrl]" id="pic" class="pic" onclick="advance()" onerror='this.style.display = "none"'>
+		<img src="%POST_9[imageUrl]" id="pic" class="pic" onclick="advance()" onerror='this.style.display = "none"'>
+		<img src="%POST_10[imageUrl]" id="pic" class="pic" onclick="advance()" onerror='this.style.display = "none"'>
+	</div>
+	<div id="ctlReset" class="ctlReset" onclick="reset()"></div>
+	<div id="ctlBack" class="ctlBack" onclick="reverse()"></div>
+</div>
+
+</body>
+
+</html>

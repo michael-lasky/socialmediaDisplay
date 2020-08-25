@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>4 Image Lineup</title>
+    <style>
+
+      body, html {
+        margin: 0;
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+      }
+
+      @font-face {
+        font-family : Gotham-Medium;
+        src: url(assets/GothamNarrow-Medium.ttf);
+      }
+
+      #username {
+        position: absolute;
+        min-width: 70px;
+        left: 46px;
+        top: 585px;
+        height: auto;
+        margin: 0;
+        text-align: left;
+        font: 33px Gotham-Medium;
+        color: #3d3e3f;
+        background-image: url(assets/%POST_1[src].png), linear-gradient(to top right, #f0f0f0, #f0f0f0);
+        background-repeat: no-repeat, no-repeat;
+        background-position: 5px 5px, top;
+        background-size: 33px 33px, 100%;
+        padding-top: 5px;
+        padding-bottom: 0px;
+        padding-left: 5px;
+        padding-right: 10px;
+        border-bottom-style: solid;
+        border-bottom-width: 5px;
+        border-bottom-color: #be1c1c;
+        z-index: 19;
+      }
+
+      .imagePost {
+          text-indent: 0px;
+      }
+
+      .noImagePost{
+          text-indent: 42px;
+      }
+
+      #image1 {
+        position: absolute;
+        width: 297px;
+        height: 167px;
+        left: 970px;
+        top: 10px;
+        object-fit: contain;
+        z-index: 4;
+        background: rgba(240, 240, 240, 0.80);
+      }
+
+      #image2 {
+        position: absolute;
+        width: 297px;
+        height: 167px;
+        left: 970px;
+        top: 189px;
+        object-fit: contain;
+        z-index: 4;
+        background: rgba(240, 240, 240, 0.80);
+      }
+
+      #image3 {
+        position: absolute;
+        width: 297px;
+        height: 167px;
+        left: 970px;
+        top: 367px;
+        object-fit: contain;
+        z-index: 4;
+        background: rgba(240, 240, 240, 0.80);
+      }
+
+      #image4 {
+        position: absolute;
+        width: 297px;
+        height: 167px;
+        left: 970px;
+        top: 545px;
+        object-fit: contain;
+        z-index: 4;
+        background: rgba(240, 240, 240, 0.80);
+      }
+
+      #imageMain {
+        position: absolute;
+        width: 890px;
+        height: 501px;
+        left: 46px;
+        top: 66px;
+        object-fit: contain;
+        z-index: 14;
+        background: rgba(240, 240, 240, 0.80);
+      }
+
+      #previewBg {
+        position: absolute;
+        width: 1280px;
+        height: 720px;
+        left: 0;
+        top: 0;
+        z-index: 1;
+      }
+
+      .noShow {
+        transition: opacity 1s ease-in-out;
+        opacity:0;
+      }
+
+      .show {
+        transition: opacity 1s ease-in-out;
+        opacity:1;
+      }
+
+      div:empty {
+        display: none;
+      }
+
+    </style>
+
+</head>
+     x<script src="assets/jquery-2.2.3.min.js"></script>
+
+     <script>
+
+     $(document).ready(function(){
+
+        $("#image1").click(function(){
+          $("#imageMain").attr("src", $("#image1").attr("src")).fadeIn(1000);
+        });
+
+        $("#image2").click(function(){
+          $("#imageMain").attr("src", $("#image2").attr("src")).fadeIn(1000);
+        });
+
+        $("#image3").click(function(){
+          $("#imageMain").attr("src", $("#image3").attr("src")).fadeIn(1000);
+        });
+
+        $("#image4").click(function(){
+          $("#imageMain").attr("src", $("#image4").attr("src")).fadeIn(1000);
+        });
+
+        $("#previewBg").click(function(){
+          $("#imageMain").attr("src", "assets/fox8Bg.png").fadeIn(1000);
+        });
+      });
+
+    </script>
+
+<body>
+
+  <div id="pagecontainer" class="pagecontainer">
+
+    	<img id="image1" src="%POST_1[imageUrl]" />
+
+    	<img id="image2" src="%POST_2[imageUrl]" />
+
+    	<img id="image3" src="%POST_3[imageUrl]" />
+
+    	<img id="image4" src="%POST_4[imageUrl]" />
+
+    	<img id="imageMain" src="assets/fox8Bg.png" />
+
+      <img src="assets/previewBg.png" id="previewBg">
+
+</div>
+
+</body></html>

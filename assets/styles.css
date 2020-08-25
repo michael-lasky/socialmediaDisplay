@@ -1,0 +1,77 @@
+body {
+  margin: 0;
+  min-width: 1280px;
+}
+
+#text {
+  position: absolute;
+  width: 1024px;
+  left: 222px;
+  top: 176px;
+  z-index: 5;
+  min-height: 448px;
+}
+
+#username {
+  position: absolute;
+  width: 921px;
+  left: 222px;
+  top: 94px;
+  z-index: 4;
+  min-height: 70px;
+}
+
+#sidebar {
+  position: absolute;
+  width: 174px;
+  height: 720px;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+#panel {
+  float: left;
+  position: relative;
+  width: 1100px;
+  height: 604px;
+  margin-top: 50px;
+  margin-left: 180px;
+  z-index: 3;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  text-align: left;
+  font: bold 47px/47px Gotham Narrow;
+  text-transform: none;
+  text-decoration: none;
+  color: #3d3e3f;
+  letter-spacing: normal;
+}
+
+.text-style-1 {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  text-align: left;
+  font: bold 38px/38px Gotham Narrow;
+  text-transform: none;
+  text-decoration: none;
+  color: #3d3e3f;
+  letter-spacing: normal;
+}
+
+.text-style-2 {
+  margin: 0;
+  padding: 0;
+  text-indent: 0;
+  text-align: left;
+  font: 500 61px/51px Gotham Narrow;
+  text-transform: none;
+  text-decoration: none;
+  color: #3d3e3f;
+  letter-spacing: normal;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="dgxClip" content="NEWS_BG">
+<title>
+  FS_POST_IMAGE
+</title>
+  <style>
+  body, html {
+    margin: 0;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+  }
+
+  @font-face {
+    font-family : Gotham-Black;
+    src: url(assets/GothamNarrow-Black.ttf);
+  }
+
+  @font-face {
+    font-family : Gotham-Bold;
+    src: url(assets/GothamNarrow-Bold.ttf);
+  }
+
+  @font-face {
+    font-family : Gotham;
+    src: url(assets/GothamNarrow-Book.ttf);
+  }
+
+  @font-face {
+    font-family : Gotham-Medium;
+    src: url(assets/GothamNarrow-Medium.ttf);
+  }
+
+  #username {
+    position: absolute;
+    width: 913px;
+    left: 227px;
+    top: 62px;
+    z-index: 6;
+    min-height: 108px;
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    text-align: left;
+    font: 55px Gotham-Medium;
+    text-decoration: none;
+    color: #000000;
+  }
+
+  #socailicon {
+    position: absolute;
+    width: 76px;
+    height: 75px;
+    left: 134px;
+    top: 52px;
+    z-index: 3;
+  }
+
+  #postbox{
+    position: absolute;
+    width: 634px;
+    left: 137px;
+    top: 137px;
+    height: 430px;
+    margin: 0 auto;
+    z-index: 12;
+    display: flex;
+    align-items: center;
+  }
+
+  #postbox span {
+  	position: absolute;
+    font-family: Gotham-Medium;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: bold;
+    font-size: 45px;
+    text-align: left;
+    color: #3d3e3f;
+    display: flex;
+    word-break: break-word;
+    white-space: pre-wrap;
+  }
+
+  #panel  {
+    position: absolute;
+    width: 1093px;
+    height: 580px;
+    left: 90px;
+    top: 22px;
+  	z-index: 2;
+  }
+
+  #image {
+    position: absolute;
+    width: 352px;
+    height: 431px;
+    left: 784px;
+    top: 138px;
+    object-fit: contain;
+    z-index: 4;
+    background: rgba(178, 216, 255, 0.15);
+  }
+
+  #previewBg {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  </style>
+  <script src="assets/jquery-3.2.1.min.js"></script>
+  <script src="assets/jquery.textfill.min.js"></script>
+  <script src="assets/jquery.textfill.js"></script>
+
+  </head>
+  <body>
+    <div id="username">%POST_1[user_name]</div>
+    <img id="socailicon" src="assets/%POST_1[src].png"/>
+    <div id="postbox" style="width:634px; max-height:430px;">
+        <span>%POST_1[text]</span>
+    </div>
+    <img id="image" src="%POST_1[imageUrl]"/>
+    <img id="panel" src="assets/panel.png"/>
+    <img id="previewBg" src="assets/previewBg.png"/>
+
+    <script>
+      window.onload = function() {
+        	$('#postbox').textfill({
+      		  maxFontPixels: 65,
+              explicitHeight: 430,
+              explicitWidth: 634
+          });
+      };
+  	</script>
+  </body>
+</html>

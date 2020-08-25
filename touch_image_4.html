@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>4 Picture Touchscreen</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<script language="JavaScript" type="text/JavaScript">
+
+
+
+</script>
+<style>
+
+html, body {
+  padding:0px;
+  margin:0px;
+  overflow:hidden;
+  width:100%;
+  height: 100%;
+}
+
+@font-face {
+  font-family : Gotham-Black;
+  src: url(assets/GothamNarrow-Black.ttf);
+}
+
+@font-face {
+  font-family : Gotham-Bold;
+  src: url(assets/GothamNarrow-Bold.ttf);
+}
+
+@font-face {
+  font-family : Gotham;
+  src: url(assets/GothamNarrow-Book.ttf);
+}
+
+@font-face {
+  font-family : Gotham-Medium;
+  src: url(assets/GothamNarrow-Medium.ttf);
+}
+
+.page_content {
+  width:1280px;
+  height: 720px;
+  top: 0px;
+  left: 0px;
+  position: absolute;
+  -webkit-user-select: none;
+}
+
+.bg_img {
+  width:1280px;
+  height:720px;
+  z-index:-1;
+  top:0px;
+  left:0px;
+  position: absolute;
+  object-fit: cover;
+}
+
+.image_1 {
+  position: absolute;
+  top:30px;
+  left:60px;
+  height:315px;
+  width: 560px;
+  transition:all 1s;
+  z-index: 0;
+  object-fit: cover;
+  border: 2px solid #FFF;
+}
+
+.image_1.large {
+  width:1280px;
+  height:720px;
+  z-index: 10;
+  top:-2px;
+  left:-2px;
+  object-fit: cover;
+}
+
+.image_2 {
+  position: absolute;
+  top:30px;
+  left:655px;
+  height:315px;
+  width: 560px;
+  transition: all 1s;
+  z-index: 0;
+  object-fit: cover;
+  border: 2px solid #FFF;
+}
+
+.image_2.large {
+  width:1280px;
+  height:720px;
+  z-index: 10;
+  top:-2px;
+  left:-2px;
+}
+
+.image_3 {
+  position: absolute;
+  top:372px;
+  left:60px;
+  height:315px;
+  width: 560px;
+  transition:all 1s;
+  z-index: 0;
+  object-fit: cover;
+  border: 2px solid #FFF;
+}
+
+.image_3.large {
+  width:1280px;
+  height:720px;
+  z-index: 10;
+  top:-2px;
+  left:-2px;
+}
+
+.image_4 {
+  position: absolute;
+  top:372px;
+  left:655px;
+  height:315px;
+  width: 560px;
+  transition:all 1s;
+  z-index: 0;
+  object-fit: cover;
+  border: 2px solid #FFF;
+}
+
+.image_4.large {
+  width:1280px;
+  height:720px;
+  z-index: 10;
+  top:-2px;
+  left:-2px;
+}
+
+</style>
+
+  <script language="JavaScript" type="text/JavaScript">
+
+  var big = false;
+
+  function enlargeImg1(){
+    if (big == false){
+      big = true;
+      document.getElementById("image_1").classList.add('large');
+      //document.getElementById("image_2").classList.add('unclicked');
+      //document.getElementById("image_3").classList.add('unclicked');
+      //document.getElementById("image_4").classList.add('unclicked');
+    }else{
+      big = false;
+      document.getElementById("image_1").classList.remove('large');
+      //document.getElementById("image_2").classList.remove('unclicked');
+      //document.getElementById("image_3").classList.remove('unclicked');
+      //document.getElementById("image_4").classList.remove('unclicked');
+    }
+  }
+
+  function enlargeImg2(){
+    if (big == false){
+      big = true;
+      document.getElementById("image_2").classList.add('large');
+      //document.getElementById("image_1").classList.add('unclicked');
+      //document.getElementById("image_3").classList.add('unclicked');
+      //document.getElementById("image_4").classList.add('unclicked');
+    }else{
+      big = false;
+      document.getElementById("image_2").classList.remove('large');
+      //document.getElementById("image_1").classList.remove('unclicked');
+      //document.getElementById("image_3").classList.remove('unclicked');
+      //document.getElementById("image_4").classList.remove('unclicked');
+    }
+  }
+
+  function enlargeImg3(){
+    if (big == false){
+      big = true;
+      document.getElementById("image_3").classList.add('large');
+      //document.getElementById("image_1").classList.add('unclicked');
+      //document.getElementById("image_2").classList.add('unclicked');
+      //document.getElementById("image_4").classList.add('unclicked');
+    }else{
+      big = false;
+      document.getElementById("image_3").classList.remove('large');
+      //document.getElementById("image_1").classList.remove('unclicked');
+      //document.getElementById("image_2").classList.remove('unclicked');
+      //document.getElementById("image_4").classList.remove('unclicked');
+    }
+  }
+
+  function enlargeImg4(){
+    if (big == false){
+      big = true;
+      document.getElementById("image_4").classList.add('large');
+      //document.getElementById("image_1").classList.add('unclicked');
+      //document.getElementById("image_2").classList.add('unclicked');
+      //document.getElementById("image_3").classList.add('unclicked');
+    }else{
+      big = false;
+      document.getElementById("image_4").classList.remove('large');
+      //document.getElementById("image_1").classList.remove('unclicked');
+      //document.getElementById("image_2").classList.remove('unclicked');
+      //document.getElementById("image_3").classList.remove('unclicked');
+    }
+  }
+
+</script>
+</head>
+
+<body>
+<div id="page_content" class="page_content">
+  <img src="%POST_1[imageUrl]" id="image_1" class="image_1" onclick="enlargeImg1()">
+  <img src="%POST_2[imageUrl]" id="image_2" class="image_2" onclick="enlargeImg2()">
+  <img src="%POST_3[imageUrl]" id="image_3" class="image_3" onclick="enlargeImg3()">
+  <img src="%POST_4[imageUrl]" id="image_4" class="image_4" onclick="enlargeImg4()">
+
+  <img src="assets/previewBg.png" id="bg_img" class="bg_img"></img>
+</div>
+
+</body>
+</html>

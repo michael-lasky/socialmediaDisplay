@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="dgxClip" content="NEWS_BG">
+    <title>
+      FS IMAGE
+    </title>
+    <style>
+
+    #image {
+      position: absolute;
+      width: 1280px;
+      height: 720px;
+      left: 0;
+      top: 0;
+      object-fit: contain;
+      z-index: 2
+    }
+
+    #previewBg {
+      position: absolute;
+      width: 1280px;
+      height: 720px;
+      left: 0;
+      top: 0;
+      z-index: 1;
+    }
+
+    div:empty {
+      display: none;
+    }
+
+    </style>
+  </head>
+  <body>
+    <img id="image" src="%POST_1[imageUrl]"/>
+    <img id="previewBg" src="assets/previewBg.png"/>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="dgxClip" content="NEWS_BG">
+<title>
+  FS_IMAGE_SOCIAL
+</title>
+  <style>
+  body, html {
+    margin: 0;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+  }
+
+  @font-face {
+    font-family : Gotham-Black;
+    src: url(assets/GothamNarrow-Black.ttf);
+  }
+
+  @font-face {
+    font-family : Gotham-Bold;
+    src: url(assets/GothamNarrow-Bold.ttf);
+  }
+
+  @font-face {
+    font-family : Gotham;
+    src: url(assets/GothamNarrow-Book.ttf);
+  }
+
+  @font-face {
+    font-family : Gotham-Medium;
+    src: url(assets/GothamNarrow-Medium.ttf);
+  }
+
+  #username {
+    position: absolute;
+    min-width: 70px;
+    left: 114px;
+    top: 19px;
+    height: auto;
+    margin: 0;
+    text-align: left;
+    font: 33px Gotham-Medium;
+    color: #3d3e3f;
+    background-image: url(assets/%POST_1[src].png), linear-gradient(to top right, #f0f0f0, #f0f0f0);
+    background-repeat: no-repeat, no-repeat;
+    background-position: 5px 5px, top;
+    background-size: 33px 33px, 100%;
+    padding-top: 5px;
+    padding-bottom: 0px;
+    padding-left: 5px;
+    padding-right: 10px;
+    border-bottom-style: solid;
+    border-bottom-width: 5px;
+    border-bottom-color: #be1c1c;
+    z-index: 19;
+  }
+
+  .imagePost {
+      text-indent: 0px;
+  }
+
+  .noImagePost{
+      text-indent: 42px;
+  }
+
+  #image {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    left: 0;
+    top: 0;
+    object-fit: contain;
+    z-index: 2
+  }
+
+  #previewBg {
+    position: absolute;
+    width: 1280px;
+    height: 720px;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+
+  div:empty {
+    display: none;
+  }
+
+    </style>
+  </head>
+  <body>
+    <div id="username">%POST_1[user_name]</div>
+    <img id="image" src="%POST_1[imageUrl]"/>
+    <img id="previewBg" src="assets/previewBg.png"/>
+
+    <script>
+
+    var img = document.getElementById('username');
+		style = img.currentStyle || window.getComputedStyle(img, false);
+		sourceUrl = style.backgroundImage.slice(4, -1).replace(/"/g, "");
+		console.log("name: " + sourceUrl);
+
+		if (sourceUrl.includes('assets/Images.png')) {
+			img.classList.add('imagePost');
+		} else {
+			img.classList.add('noImagePost');
+		};
+
+		</script>
+  </body>
+</html>
